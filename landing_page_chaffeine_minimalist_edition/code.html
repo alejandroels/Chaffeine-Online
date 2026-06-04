@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chaffeine | Artisanal Coffee</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#efeded",
+                        "on-secondary-container": "#636262",
+                        "on-primary-fixed": "#271138",
+                        "tertiary": "#5d5f5f",
+                        "surface-dim": "#dbdad9",
+                        "inverse-surface": "#303031",
+                        "primary-fixed-dim": "#dabbed",
+                        "primary": "#6e547f",
+                        "surface-container-low": "#f5f3f3",
+                        "on-surface": "#1b1c1c",
+                        "surface": "#fbf9f8",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "outline-variant": "#cdc4ce",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#4b454d",
+                        "secondary-container": "#e2dfde",
+                        "surface-tint": "#6e547f",
+                        "inverse-primary": "#dabbed",
+                        "surface-container-high": "#e9e8e7",
+                        "surface-bright": "#fbf9f8",
+                        "tertiary-container": "#9e9f9f",
+                        "primary-container": "#b194c3",
+                        "surface-container-highest": "#e4e2e2",
+                        "surface-variant": "#e4e2e2",
+                        "primary-fixed": "#f3daff",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fbf9f8",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#432c54",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "outline": "#7c757e",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-background": "#1b1c1c",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-tertiary-container": "#343637",
+                        "on-primary-fixed-variant": "#553d66",
+                        "on-error-container": "#93000a",
+                        "secondary": "#5f5e5e",
+                        "on-secondary-fixed-variant": "#474746"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter-md": "2.5rem",
+                        "stack-md": "2rem",
+                        "gutter-sm": "1.5rem",
+                        "gutter-lg": "4rem",
+                        "inset-container": "2rem",
+                        "stack-sm": "1rem",
+                        "stack-lg": "6rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "label-sm": ["Work Sans"],
+                        "label-md": ["Work Sans"],
+                        "body-lg": ["Work Sans"],
+                        "body-md": ["Work Sans"],
+                        "display-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.03em", "fontWeight": "500"}],
+                        "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+            -webkit-font-smoothing: antialiased;
+        }
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-background border-b border-outline-variant dark:border-outline w-full top-0 sticky z-50">
+<nav class="flex justify-between items-center w-full px-gutter-lg py-6 max-w-7xl mx-auto">
+<div class="font-headline-md text-headline-md text-on-surface dark:text-inverse-on-surface tracking-tighter">
+                Chaffeine
+            </div>
+<div class="hidden md:flex gap-8">
+<a class="font-label-md text-label-md uppercase tracking-widest text-primary dark:text-primary-fixed-dim border-b-2 border-primary pb-1 duration-300 ease-in-out" href="#">Menu</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300 ease-in-out" href="#">Our Story</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300 ease-in-out" href="#">Gallery</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300 ease-in-out" href="#">Contact</a>
+</div>
+<button class="bg-on-surface text-surface px-6 py-2 font-label-md text-label-md uppercase tracking-widest hover:opacity-80 transition-opacity duration-300 ease-in-out">
+                Order Now
+            </button>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-gutter-lg py-stack-lg grid grid-cols-1 md:grid-cols-2 items-center gap-gutter-lg overflow-hidden">
+<div class="reveal active">
+<span class="font-label-md text-label-md uppercase tracking-widest text-primary mb-4 block">Artisanal Experience</span>
+<h1 class="font-display-lg text-display-lg mb-6">El Arte de un Buen Café</h1>
+<p class="font-body-lg text-body-lg text-secondary mb-10 max-w-md">
+                    Descubre la perfección en cada gota. Nuestra pasión por el tostado artesanal transforma granos seleccionados en una experiencia sensorial única.
+                </p>
+<div class="flex items-center gap-6">
+<button class="bg-on-surface text-surface px-8 py-4 font-label-md text-label-md uppercase tracking-widest hover:bg-primary transition-colors duration-300">
+                        Explorar Menú
+                    </button>
+<a class="font-label-md text-label-md uppercase tracking-widest border-b border-on-surface py-1 hover:text-primary hover:border-primary transition-all" href="#">Nuestra Historia</a>
+</div>
+</div>
+<div class="relative reveal active">
+<div class="aspect-[4/5] bg-surface-container overflow-hidden group">
+<img alt="Premium Coffee Art" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A high-end cinematic close-up of a perfectly crafted latte with intricate leaf latte art on the surface. The scene is set in a minimalist, architecturally precise cafe with soft, high-key lighting that emphasizes the warm, creamy textures of the coffee. The color palette is a sophisticated blend of muted beiges, charcoal, and a subtle lavender accent in the background. The mood is calm, luxurious, and deeply focused on artisanal quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ5mkwdIbNfQQ9qNq65XYfaY75rGCVfuXrrg_NuhyTjKG7Y4gxfmNPbsXT_eCMmFh2aHDur_eRsNdmDsXgNjL8Hxv_qO3A9b7nlJH1xGDrXHxNivXV-4rq-S6PPAxxowkcrqDgEVJnRO5W4S14Ex7Zek1C8CMWz2Ygh3nLCPmdzn-gIEpnOaaKtgnSQfBlxbEWzunVFza0XeFOffzcf3JOMslMsw_i1wwsSERS5AXq8AMhPXftF9ofkMHAmIpCvcdRRaF32yYygu4"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-primary-container p-8 hidden lg:block">
+<p class="font-headline-md text-headline-md text-on-primary-container">Since 2014</p>
+</div>
+</div>
+</section>
+<!-- Specialties Section -->
+<section class="bg-surface-container-low py-stack-lg">
+<div class="max-w-7xl mx-auto px-gutter-lg">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-stack-sm reveal">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-4">Nuestras Especialidades</h2>
+<p class="font-body-md text-body-md text-secondary max-w-md">Selección curada por nuestros baristas para los paladares más exigentes.</p>
+</div>
+<div class="h-px bg-outline-variant flex-grow mx-8 mb-4 hidden md:block"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-sm">
+<!-- Item 1 -->
+<div class="bg-surface border border-outline-variant p-inset-container flex flex-col justify-between hover:border-primary transition-colors duration-300 reveal">
+<div>
+<span class="material-symbols-outlined text-primary mb-6" style="font-size: 32px;">coffee</span>
+<h3 class="font-headline-md text-headline-md mb-2">Espresso</h3>
+<p class="font-body-md text-body-md text-secondary mb-8">Intenso, equilibrado y con cuerpo.</p>
+</div>
+<div class="flex justify-between items-baseline pt-4 border-t border-outline-variant/30">
+<span class="font-label-md text-label-md text-primary">$3.50</span>
+<button class="text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface border border-outline-variant p-inset-container flex flex-col justify-between hover:border-primary transition-colors duration-300 reveal" style="transition-delay: 100ms;">
+<div>
+<span class="material-symbols-outlined text-primary mb-6" style="font-size: 32px;">palette</span>
+<h3 class="font-headline-md text-headline-md mb-2">Latte Art</h3>
+<p class="font-body-md text-body-md text-secondary mb-8">Sedosa leche vaporizada y espresso.</p>
+</div>
+<div class="flex justify-between items-baseline pt-4 border-t border-outline-variant/30">
+<span class="font-label-md text-label-md text-primary">$4.50</span>
+<button class="text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface border border-outline-variant p-inset-container flex flex-col justify-between hover:border-primary transition-colors duration-300 reveal" style="transition-delay: 200ms;">
+<div>
+<span class="material-symbols-outlined text-primary mb-6" style="font-size: 32px;">water_drop</span>
+<h3 class="font-headline-md text-headline-md mb-2">Pour-over</h3>
+<p class="font-body-md text-body-md text-secondary mb-8">Claridad y notas frutales puras.</p>
+</div>
+<div class="flex justify-between items-baseline pt-4 border-t border-outline-variant/30">
+<span class="font-label-md text-label-md text-primary">$5.00</span>
+<button class="text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="bg-surface border border-outline-variant p-inset-container flex flex-col justify-between hover:border-primary transition-colors duration-300 reveal" style="transition-delay: 300ms;">
+<div>
+<span class="material-symbols-outlined text-primary mb-6" style="font-size: 32px;">ac_unit</span>
+<h3 class="font-headline-md text-headline-md mb-2">Cold Brew</h3>
+<p class="font-body-md text-body-md text-secondary mb-8">Infusión en frío por 18 horas.</p>
+</div>
+<div class="flex justify-between items-baseline pt-4 border-t border-outline-variant/30">
+<span class="font-label-md text-label-md text-primary">$4.75</span>
+<button class="text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Visuals Gallery -->
+<section class="max-w-7xl mx-auto px-gutter-lg py-stack-lg overflow-hidden">
+<div class="grid grid-cols-12 gap-8 items-start">
+<div class="col-span-12 md:col-span-5 reveal">
+<div class="aspect-[0.87] bg-surface-container overflow-hidden">
+<img alt="Gallery 1" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmqo09crORBTNG3UTpeIb1jVwv8FgSxgttZpbnGsb0K_bCv0SNXczHAcEqxSKh_7pQhe1ZnRtfTNXpBsk8p4_8kt9aVbxP_maps55nB4Hci8XWUtPdEiY7-A5gthe_I50admN6F_v4zk-Dg8srN6j5tNnhu-oZSEwLVOc0lKhXV8ZLO6XDujSTvR5-8wFXslsrCAOoAEdgj03qAOBGrT4h3HGT80y4nxVJIDK9SLPRtc_UtQI5pHJGwzeRb39amr1d6TUX3o0f6vU"/>
+</div>
+<div class="mt-8">
+<h4 class="font-label-md text-label-md uppercase tracking-widest mb-2">Proceso</h4>
+<p class="font-body-md text-body-md text-secondary">Cada detalle cuenta en la preparación.</p>
+</div>
+</div>
+<div class="col-span-12 md:col-span-7 mt-0 md:mt-32 reveal" style="transition-delay: 150ms;">
+<div class="aspect-[0.81] bg-surface-container overflow-hidden max-w-lg ml-auto">
+<img alt="Gallery 2" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbcMagJEy6Fndn1nKiefgCxpkj3s05pE3eiYvlpsS-7tvOLOu_9PqCu99rG0o8lw3sJ3xikcXsB5eTnw36lfNTqiRDYfBy89v1E4cG01_FI3sgjRDq9dF_uXlJaXnDDTIuSpx1anFOTAlt3G2ZMemXInIMSDaz3WO3CV_ARq6rcBF0iYZLMQNQIgRk78gR0oq-MxCshSk9vd1GzbMUGW_J0hXnI3_J9gqnUW1XU4fYxCmsYB3xWD3I3p7yHbavsMH5Mw7tJjXQm6Y"/>
+</div>
+</div>
+<div class="col-span-12 md:col-span-6 -mt-0 md:-mt-24 reveal" style="transition-delay: 300ms;">
+<div class="aspect-[0.84] bg-surface-container overflow-hidden max-w-md">
+<img alt="Gallery 3" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHEzHJ39khyR7eGq1J6fqCCBfXwt25k18p1jUQowqDSlrlNpgFJJlDHexVmHcjL2OH2EBOj0wJFmZ_V2vlZfDQ9nYVicKqOPC-RkU9tIqsr1MJ0MtvE054nmTM2dSAG20ARBux9K8CeTBNb_RVsZaH4IQ-lqhvXHhH0DUeS8wYYNiWG9wCE8M15hKdkHzBjGlJ_mQW8nQM8fECYKyJ0TpC3BkfKx95tUZA86i041AdSSsRT5WctbW942P02AU6VSYJs0Fv735KFvc"/>
+</div>
+</div>
+<div class="col-span-12 md:col-span-6 flex items-center justify-center p-12 reveal" style="transition-delay: 450ms;">
+<div class="text-center">
+<p class="font-display-lg text-[48px] italic leading-tight mb-6">"El café es el bálsamo del corazón y del espíritu."</p>
+<p class="font-label-md text-label-md uppercase tracking-widest text-primary">— Giuseppe Verdi</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Info Section -->
+<section class="bg-on-surface text-surface py-stack-lg">
+<div class="max-w-7xl mx-auto px-gutter-lg grid grid-cols-1 lg:grid-cols-2 gap-gutter-lg items-center">
+<div class="reveal">
+<span class="font-label-md text-label-md uppercase tracking-widest text-primary-container mb-6 block">Nuestra Misión</span>
+<h2 class="font-display-lg text-display-lg mb-8">Pasión en cada Grano</h2>
+<div class="space-y-6 max-w-lg">
+<p class="font-body-lg text-body-lg text-surface-container">Trabajamos directamente con productores locales para asegurar una trazabilidad absoluta y un comercio justo que honre el trabajo del campo.</p>
+<p class="font-body-md text-body-md text-secondary-fixed">Nuestra selección pasa por un riguroso proceso de control de calidad, desde la altura del cultivo hasta el perfil de tostado específico para cada varietal.</p>
+</div>
+<div class="grid grid-cols-2 gap-8 mt-12">
+<div>
+<p class="text-[40px] font-headline-lg text-primary-container mb-2">100%</p>
+<p class="font-label-md text-label-md uppercase tracking-widest">Orgánico</p>
+</div>
+<div>
+<p class="text-[40px] font-headline-lg text-primary-container mb-2">+12</p>
+<p class="font-label-md text-label-md uppercase tracking-widest">Orígenes</p>
+</div>
+</div>
+</div>
+<div class="relative reveal" style="transition-delay: 200ms;">
+<div class="aspect-square bg-white/5 p-4 backdrop-blur-sm border border-white/10">
+<img alt="Brewing Passion" class="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-700" data-alt="A professional barista meticulously pouring hot water over fresh coffee grounds in a minimalist ceramic dripper. The lighting is low and moody, with a strong focus on the steam rising and the texture of the wet coffee. The background is a clean, dark charcoal wall, emphasizing the movement of the pour. The aesthetic is extremely minimalist and high-end, featuring subtle purple light reflections on the glassware." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy69eTrfSeYYa6gEyFgmUPJtwyrPIkSu34Jo8aq4-dXKDSeNxy1DhEpJFgU2HP7sX0pDo5nhbzJlLup6PB_sGQpGr9nSZzVX_qC0N1qTzJF-IGgjZiYuSB5yGEIpfETpH8TlSIjvMG7bAzuyUY4Efq1GqevGj1PzW3CzFhhCUK_ShRk40IIbOrAISnIjqDPJpnlIKYi7YJm7qln9p15qBRoUf9DzfEu5Z-2ILwBJ8p1cFeF8OhNQXyskhC1DowooN31qoMpy_bKPc"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Visit Us Section -->
+<section class="py-stack-lg bg-surface">
+<div class="max-w-7xl mx-auto px-gutter-lg">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter-lg">
+<div class="col-span-1 reveal">
+<h2 class="font-headline-lg text-headline-lg mb-8">Visítanos</h2>
+<div class="space-y-10">
+<div>
+<h4 class="font-label-md text-label-md uppercase tracking-widest text-primary mb-4">Ubicación</h4>
+<p class="font-body-md text-body-md">Calle de la Aroma 123,<br/>Distrito de Diseño, 28001</p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md uppercase tracking-widest text-primary mb-4">Horarios</h4>
+<p class="font-body-md text-body-md">Lunes a Viernes: 08:00 — 20:00<br/>Sábados y Domingos: 09:00 — 21:00</p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md uppercase tracking-widest text-primary mb-4">Contacto</h4>
+<p class="font-body-md text-body-md">+34 912 345 678<br/>hola@chaffeine.com</p>
+</div>
+</div>
+</div>
+<div class="col-span-1 lg:col-span-2 reveal" style="transition-delay: 200ms;">
+<div class="w-full h-full min-h-[400px] bg-surface-container-high relative overflow-hidden group border border-outline-variant">
+<!-- Simulated Map -->
+<div class="absolute inset-0 grayscale contrast-125 opacity-50 transition-all duration-700 group-hover:grayscale-0 group-hover:opacity-100" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDS1JuHxiLkJC9F_oj7wnDqn518gce71wz5frVdkJADVsU-eu45AAfEqTmyaDz8OUk_Jc0np3xQszEGnd9pE6_JyYCpvBSZ2pzv83eSENk4Fqk-iZAiVENVgiuKJyw6OBre-5Fpv9ie11Eju5WAtyZqbvBHSAJRJhtkJTgc_B77rbVmpaP7bis6BaohgEAnOuljkuaYlCzipgSGfF6kEIMTJLfxOEPw5epw0RJFbtdUoCNf2wczDeRnNsPL1KMdqT2SsKBPSpeTBN4'); background-size: cover; background-position: center;">
+</div>
+<div class="absolute inset-0 bg-primary/10 pointer-events-none"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<div class="w-12 h-12 bg-primary flex items-center justify-center text-white rounded-full shadow-2xl animate-bounce">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+</div>
+<div class="absolute bottom-6 right-6 bg-surface p-4 shadow-sm border border-outline-variant">
+<p class="font-label-md text-label-md">MADRID, ESPAÑA</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-dim border-t border-outline-variant dark:border-outline w-full py-stack-lg">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter-lg max-w-7xl mx-auto gap-stack-sm">
+<div class="font-headline-sm text-headline-sm text-on-surface">Chaffeine</div>
+<div class="flex gap-8">
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-all duration-300" href="#">Instagram</a>
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-all duration-300" href="#">Facebook</a>
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-all duration-300" href="#">Location</a>
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-all duration-300" href="#">Privacy</a>
+</div>
+<div class="font-body-md text-body-md text-on-tertiary-fixed-variant opacity-70">
+                © 2024 Chaffeine Artisanal Coffee. All rights reserved.
+            </div>
+</div>
+</footer>
+<!-- FAB (Suppressed for focused landing page as per instructions, but keeping script logic for potential interactive needs) -->
+<script>
+        // Simple Intersection Observer for reveal animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body></html>
