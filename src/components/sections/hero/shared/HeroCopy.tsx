@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { heroContent } from "../content";
+import { ChaffeineWordmark } from "./ChaffeineWordmark";
 
 type HeroCopyProps = {
   variant: "mobile" | "web";
@@ -12,14 +13,16 @@ export function HeroCopy({ variant }: HeroCopyProps) {
   return (
     <div
       className={
-        isMobile ? "w-full max-w-lg" : "w-full max-w-2xl"
+        isMobile
+          ? "flex w-full min-w-0 flex-1 flex-col"
+          : "flex h-full w-full min-w-0 flex-1 flex-col justify-center"
       }
     >
       <span
         className={
           isMobile
-            ? "mb-2 block text-sm font-medium uppercase tracking-widest text-primary sm:mb-3 sm:text-base"
-            : "mb-5 block text-base font-medium uppercase tracking-widest text-primary lg:mb-6 lg:text-lg"
+            ? "mb-3 block text-base font-medium uppercase tracking-[0.3em] text-primary sm:mb-4 sm:text-lg"
+            : "mb-6 block text-lg font-medium uppercase tracking-[0.35em] text-primary lg:mb-8 lg:text-xl xl:text-2xl"
         }
       >
         {eyebrow}
@@ -28,15 +31,15 @@ export function HeroCopy({ variant }: HeroCopyProps) {
       <div
         className={
           isMobile
-            ? "mb-3 flex items-center gap-4 sm:mb-4 sm:gap-5"
-            : "mb-8 flex items-center gap-6 lg:mb-10 lg:gap-8"
+            ? "mb-4 flex w-full min-w-0 items-center gap-5 sm:mb-5 sm:gap-6"
+            : "mb-10 flex w-full min-w-0 items-center gap-8 lg:mb-12 lg:gap-10 xl:gap-12"
         }
       >
         <span
           className={
             isMobile
-              ? "relative block h-24 w-24 shrink-0 sm:h-28 sm:w-28"
-              : "relative block h-32 w-32 shrink-0 lg:h-40 lg:w-40"
+              ? "relative block h-28 w-28 shrink-0 sm:h-32 sm:w-32"
+              : "relative block h-36 w-36 shrink-0 lg:h-44 lg:w-44 xl:h-52 xl:w-52"
           }
         >
           <Image
@@ -46,29 +49,24 @@ export function HeroCopy({ variant }: HeroCopyProps) {
             priority
             sizes={
               isMobile
-                ? "(max-width: 640px) 96px, 112px"
-                : "(max-width: 1024px) 128px, 160px"
+                ? "(max-width: 640px) 112px, 128px"
+                : "(max-width: 1280px) 176px, 208px"
             }
             aria-hidden
             className="object-contain"
           />
         </span>
-        <h1
-          className={
-            isMobile
-              ? "font-display-lg text-[2rem] leading-[1.05] text-on-surface sm:text-[2.5rem]"
-              : "font-display-lg text-[3.25rem] leading-[1.05] text-on-surface lg:text-[4rem]"
-          }
-        >
-          {title}
-        </h1>
+        <div className="min-w-0 flex-1">
+          <ChaffeineWordmark variant={variant} />
+          <h1 className="sr-only">{title}</h1>
+        </div>
       </div>
 
       <p
         className={
           isMobile
-            ? "mb-5 max-w-md text-base leading-relaxed text-on-surface-variant sm:mb-6 sm:text-lg"
-            : "mb-10 max-w-lg text-xl leading-relaxed text-on-surface-variant lg:mb-12 lg:text-[1.35rem]"
+            ? "mb-5 w-full max-w-none text-lg leading-relaxed text-on-surface-variant sm:mb-6 sm:text-xl"
+            : "mb-10 w-full max-w-none text-2xl leading-relaxed text-on-surface-variant lg:mb-12 lg:text-[1.75rem] xl:text-3xl"
         }
       >
         {description}
@@ -78,8 +76,8 @@ export function HeroCopy({ variant }: HeroCopyProps) {
         href={secondaryCta.href}
         className={
           isMobile
-            ? "w-fit border-b border-on-surface py-1 text-sm font-semibold uppercase tracking-widest text-on-surface transition-all hover:border-primary hover:text-primary sm:text-base"
-            : "w-fit border-b-2 border-on-surface py-1 text-base font-semibold uppercase tracking-widest text-on-surface transition-all hover:border-primary hover:text-primary lg:text-lg"
+            ? "w-fit border-b border-on-surface py-1 text-base font-semibold uppercase tracking-widest text-on-surface transition-all hover:border-primary hover:text-primary sm:text-lg"
+            : "w-fit border-b-2 border-on-surface py-1 text-lg font-semibold uppercase tracking-widest text-on-surface transition-all hover:border-primary hover:text-primary lg:text-xl"
         }
       >
         {secondaryCta.label}

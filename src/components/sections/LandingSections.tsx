@@ -10,8 +10,8 @@ export function LandingSections() {
   return (
     <>
       <HeroSection />
-      <SpecialtiesSection />
       <GallerySection />
+      <SpecialtiesSection />
       <MissionSection />
       <VisitUsSection />
     </>

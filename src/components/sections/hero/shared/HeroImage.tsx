@@ -30,7 +30,10 @@ export function HeroImage({
       />
       {showBottomFade && (
         <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-[18%] bg-gradient-to-t from-[#CCC8CF] via-[#CCC8CF]/80 to-transparent sm:h-[15%]"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[18%] sm:h-[15%]"
+          style={{
+            backgroundImage: `linear-gradient(to top, ${HERO_BG} 0%, ${HERO_BG}cc 45%, transparent 100%)`,
+          }}
           aria-hidden
         />
       )}

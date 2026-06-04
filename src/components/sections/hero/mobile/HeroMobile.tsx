@@ -1,5 +1,4 @@
 import { Reveal } from "@/components/ui/Reveal";
-import { HERO_BG } from "../constants";
 import { heroContent } from "../content";
 import { HeroCopy } from "../shared/HeroCopy";
 import { HeroImage } from "../shared/HeroImage";
@@ -24,15 +23,8 @@ export function HeroMobile() {
 
       <Reveal
         activeOnMount
-        className="relative z-10 flex min-h-0 flex-col justify-start px-gutter-sm pt-5 pb-3"
+        className="relative flex min-h-0 w-full min-w-0 flex-col justify-start px-gutter-sm pt-5 pb-3 sm:px-gutter-md"
       >
-        <div
-          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[52%]"
-          style={{
-            backgroundImage: `linear-gradient(to bottom, ${HERO_BG} 0%, ${HERO_BG}ee 55%, ${HERO_BG}99 75%, transparent 100%)`,
-          }}
-          aria-hidden
-        />
         <HeroCopy variant="mobile" />
       </Reveal>
     </div>

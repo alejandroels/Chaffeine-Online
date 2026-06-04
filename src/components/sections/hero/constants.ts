@@ -1,1 +1,1 @@
-export const HERO_BG = "#CCC8CF";
+export const HERO_BG = "#F7F0FF";

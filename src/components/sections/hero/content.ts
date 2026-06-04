@@ -4,6 +4,9 @@ export const heroContent = {
   description:
     "Coffee & Snacks a Domicilio en La Habana",
   secondaryCta: { label: "Nuestra Historia", href: "#story" },
+  copyBackground: {
+    src: "/Images/latte-art-bg.png",
+  },
   image: {
     src: "/Images/Image2-removebg-preview.png",
     alt: "Premium Coffee Art",

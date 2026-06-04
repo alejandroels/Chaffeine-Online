@@ -1,28 +1,27 @@
 export const galleryContent = {
   id: "gallery",
+  title: "Nuestras Especialidades",
+  description:
+    "Selección curada por nuestros baristas para los paladares más exigentes.",
   images: [
     {
-      src: "/Images/Image1.png",
-      alt: "Proceso de preparación del café",
-      width: 600,
-      height: 690,
-      caption: {
-        title: "Proceso",
-        description: "Cada detalle cuenta en la preparación.",
-      },
+      src: "/Images/Screenshot_2026-06-03_214546-removebg-preview.png",
+      alt: "Frappe de fresa en vaso Chaffeine",
+      width: 520,
+      height: 900,
     },
     {
-      src: "/Images/Screenshot_2026-06-03_214546-removebg-preview.png",
-      alt: "Interior del café",
-      width: 640,
-      height: 790,
+      src: "/Images/Image1-removebg-preview.png",
+      alt: "Variedad de bebidas frías Chaffeine",
+      width: 800,
+      height: 600,
       delay: 150,
     },
     {
-      src: "/Images/Cookies-removebg-preview.png",
-      alt: "Detalle de granos de café",
-      width: 520,
-      height: 620,
+      src: "/Images/image-removebg-preview (1).png",
+      alt: "Bowl saludable con pollo y vegetales",
+      width: 700,
+      height: 700,
       delay: 300,
     },
   ],
