@@ -10,7 +10,7 @@ export function HeroMobile() {
     <div className="relative h-full min-h-0 w-full">
       <Reveal
         activeOnMount
-        className="absolute inset-0 flex min-h-0 flex-col justify-end items-start"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 flex flex-col items-start justify-end"
       >
         <HeroImage
           src={image.src}
@@ -23,7 +23,7 @@ export function HeroMobile() {
 
       <Reveal
         activeOnMount
-        className="relative flex min-h-0 w-full min-w-0 flex-col justify-start px-gutter-sm pt-5 pb-3 sm:px-gutter-md"
+        className="relative z-20 flex min-h-0 w-full min-w-0 flex-col justify-start px-gutter-sm pt-4 pb-[min(56vh,380px)] sm:px-gutter-md sm:pt-5 sm:pb-[min(60vh,420px)]"
       >
         <HeroCopy variant="mobile" />
       </Reveal>
