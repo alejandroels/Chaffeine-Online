@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CartHeaderButton } from "@/components/cart/CartHeaderButton";
 import { navLinks } from "@/lib/navigation";
 
 /** Altura del navbar para calc(100dvh - var) en el hero */
@@ -7,7 +8,7 @@ export const HEADER_HEIGHT = "4.5rem";
 
 export function Header() {
   return (
-    <header className="w-full border-b border-primary-container bg-primary">
+    <header className="w-full border-b border-white/15 bg-[#907C75]">
       <nav className="mx-auto flex h-[4.5rem] w-full max-w-7xl items-center justify-between px-gutter-lg">
         <Link
           href="#hero"
@@ -15,7 +16,7 @@ export function Header() {
         >
           <span className="relative block h-12 w-12 shrink-0 md:h-14 md:w-14">
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt=""
               fill
               priority
@@ -24,7 +25,7 @@ export function Header() {
               className="object-contain"
             />
           </span>
-          <span className="font-headline-md text-headline-md leading-none tracking-tighter text-on-primary">
+          <span className="font-headline-md text-headline-md leading-none tracking-tighter text-white">
             Chaffeine
           </span>
         </Link>
@@ -36,8 +37,8 @@ export function Header() {
               href={link.href}
               className={`font-label-md text-label-md uppercase tracking-widest transition-colors duration-300 ease-in-out ${
                 "active" in link && link.active
-                  ? "border-b-2 border-on-primary pb-1 text-on-primary"
-                  : "text-on-primary/70 hover:text-on-primary"
+                  ? "border-b-2 border-white pb-1 text-white"
+                  : "text-white/75 hover:text-white"
               }`}
             >
               {link.label}
@@ -45,12 +46,7 @@ export function Header() {
           ))}
         </div>
 
-        <button
-          type="button"
-          className="bg-on-primary px-6 py-2 font-label-md text-label-md uppercase tracking-widest text-primary transition-opacity duration-300 ease-in-out hover:opacity-80"
-        >
-          Order Now
-        </button>
+        <CartHeaderButton />
       </nav>
     </header>
   );

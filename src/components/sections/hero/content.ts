@@ -1,14 +1,14 @@
 export const heroContent = {
-  eyebrow: "Artisanal Experience",
+  eyebrow: "Tu nuevo favorito de bebidas y snacks a domicilio en La Habana",
   title: "Chaffeine",
   description:
-    "Coffee & Snacks a Domicilio en La Habana",
-  secondaryCta: { label: "Nuestra Historia", href: "#story" },
+    "Smoothies, lattes, frappés y más, todo para disfrutar desde casa. ",
+
   copyBackground: {
     src: "/Images/fondos/download (5).jpg",
   },
   image: {
-    src: "/Images/Image2-removebg-preview.png",
+    src: "/Images/Image2-removebg-preview.webp",
     alt: "Premium Coffee Art",
   },
 } as const;

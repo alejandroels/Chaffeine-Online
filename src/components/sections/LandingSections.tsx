@@ -3,7 +3,6 @@ import {
   HeroSection,
   MissionSection,
   SpecialtiesSection,
-  VisitUsSection,
 } from "@/components/sections";
 
 export function LandingSections() {
@@ -13,7 +12,6 @@ export function LandingSections() {
       <GallerySection />
       <SpecialtiesSection />
       <MissionSection />
-      <VisitUsSection />
     </>
   );
 }

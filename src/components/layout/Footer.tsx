@@ -1,3 +1,4 @@
+import { SocialLinks } from "@/components/ui/SocialLinks";
 import { footerLinks } from "@/lib/navigation";
 
 export function Footer() {
@@ -7,6 +8,8 @@ export function Footer() {
         <div className="font-headline-md text-headline-md text-on-surface">
           Chaffeine
         </div>
+
+        <SocialLinks />
 
         <div className="flex gap-8">
           {footerLinks.map((link) => (

@@ -1,6 +1,6 @@
-import { MaterialIcon } from "@/components/ui/MaterialIcon";
 import { Reveal } from "@/components/ui/Reveal";
 import { specialtiesContent } from "./content";
+import { SpecialtyCard } from "./SpecialtyCard";
 
 export function SpecialtiesSection() {
   const { id, title, description, items } = specialtiesContent;
@@ -18,38 +18,17 @@ export function SpecialtiesSection() {
           <div className="mx-8 mb-4 hidden h-px flex-grow bg-outline-variant md:block" />
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-gutter-sm md:grid-cols-2 lg:grid-cols-4">
-          {items.map((item) => (
+        <div
+          className="grid grid-cols-1 gap-gutter-sm sm:grid-cols-2 lg:flex lg:flex-wrap lg:justify-center lg:gap-gutter-md"
+        >
+          {items.map((item, index) => (
             <Reveal
-              key={item.name}
+              key={item.id}
               delay={item.delay}
-              className="flex flex-col justify-between border border-outline-variant bg-surface p-inset-container transition-colors duration-300 hover:border-primary"
+              from="up"
+              className="lg:w-[300px]"
             >
-              <div>
-                <MaterialIcon
-                  name={item.icon}
-                  className="mb-6 text-primary"
-                  size={32}
-                />
-                <h3 className="mb-2 font-headline-md text-headline-md">
-                  {item.name}
-                </h3>
-                <p className="mb-8 font-body-md text-body-md text-secondary">
-                  {item.description}
-                </p>
-              </div>
-              <div className="flex items-baseline justify-between border-t border-outline-variant/30 pt-4">
-                <span className="font-label-md text-label-md text-primary">
-                  {item.price}
-                </span>
-                <button
-                  type="button"
-                  className="text-on-surface transition-colors hover:text-primary"
-                  aria-label={`Añadir ${item.name}`}
-                >
-                  <MaterialIcon name="add" />
-                </button>
-              </div>
+              <SpecialtyCard item={item} />
             </Reveal>
           ))}
         </div>

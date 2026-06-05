@@ -1,43 +1,83 @@
+import { CARD_DESIGNS } from "./cardDesigns";
+
 export type Specialty = {
-  icon: string;
+  id: string;
   name: string;
   description: string;
   price: string;
+  cardDesign: (typeof CARD_DESIGNS)[number];
+  image: {
+    src: string;
+    alt: string;
+  };
   delay?: number;
 };
 
 export const specialtiesContent = {
   id: "menu",
-  title: "Nuestras Especialidades",
-  description:
-    "Selección curada por nuestros baristas para los paladares más exigentes.",
+  title: "Nuestro Menú",
+ 
   items: [
     {
-      icon: "coffee",
-      name: "Espresso",
-      description: "Intenso, equilibrado y con cuerpo.",
-      price: "$3.50",
+      id: "banana-straw",
+      name: "Banana-Straw",
+      description:
+        "Base de yogurt, leche, banana, fresa y semillas de chía.",
+      price: "$5",
+      cardDesign: CARD_DESIGNS[0],
+      image: {
+        src: "/Images/products/Banana-Straw.webp",
+        alt: "Smoothie Banana-Straw Chaffeine",
+      },
     },
     {
-      icon: "palette",
-      name: "Latte Art",
-      description: "Sedosa leche vaporizada y espresso.",
-      price: "$4.50",
+      id: "tropi-sunset",
+      name: "Tropi-Sunset",
+      description:
+        "Base de yogurt, leche, mango, piña y coco deshidratado.",
+      price: "$4",
+      cardDesign: CARD_DESIGNS[1],
+      image: {
+        src: "/Images/products/Tropi-Sunset.webp",
+        alt: "Smoothie Tropi-Sunset Chaffeine",
+      },
       delay: 100,
     },
     {
-      icon: "water_drop",
-      name: "Pour-over",
-      description: "Claridad y notas frutales puras.",
-      price: "$5.00",
+      id: "choco-banano",
+      name: "Choco Banano",
+      description: "Base de yogurt, leche, banana, almendra y cacao en polvo.",
+      price: "$4",
+      cardDesign: CARD_DESIGNS[2],
+      image: {
+        src: "/Images/products/Choco Banano.webp",
+        alt: "Smoothie Choco Banano Chaffeine",
+      },
       delay: 200,
     },
     {
-      icon: "ac_unit",
-      name: "Cold Brew",
-      description: "Infusión en frío por 18 horas.",
-      price: "$4.75",
+      id: "dark-honey",
+      name: "Dark Honey",
+      description: "Base de yogurt, leche, frutos del bosque y miel.",
+      price: "$5",
+      cardDesign: CARD_DESIGNS[3],
+      image: {
+        src: "/Images/products/Dark Honey.webp",
+        alt: "Smoothie Dark Honey Chaffeine",
+      },
       delay: 300,
+    },
+    {
+      id: "caribbean",
+      name: "Caribbean",
+      description: "Base de yogurt, leche, papaya y miel.",
+      price: "$3.50",
+      cardDesign: CARD_DESIGNS[0],
+      image: {
+        src: "/Images/products/Caribbean.webp",
+        alt: "Smoothie Caribbean Chaffeine",
+      },
+      delay: 400,
     },
   ] satisfies Specialty[],
 } as const;

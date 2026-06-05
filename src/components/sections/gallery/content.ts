@@ -1,25 +1,25 @@
 export const galleryContent = {
   id: "gallery",
-  title: "Nuestras Especialidades",
-  description:
-    "Selección curada por nuestros baristas para los paladares más exigentes.",
+  title: "Nuestras Colecciones",
+
   posters: {
     smoothies: {
-      src: "/Images/Posters/Smoothies.png",
+      src: "/Images/Posters/Smoothies.webp",
       alt: "Smoothies",
       width: 900,
       height: 280,
       viewHref: "#menu",
     },
     detox: {
-      src: "/Images/Posters/DETOX.png",
+      src: "/Images/Posters/DETOX.webp",
       alt: "Detox",
       width: 900,
       height: 280,
       viewHref: "#menu",
+      maxWidthClass: "max-w-md sm:max-w-lg",
     },
     ensaladas: {
-      src: "/Images/Posters/Ensaldas.png",
+      src: "/Images/Posters/Ensaldas.webp",
       alt: "Ensaladas",
       width: 900,
       height: 280,
@@ -28,20 +28,20 @@ export const galleryContent = {
   },
   images: [
     {
-      src: "/Images/Screenshot_2026-06-03_214546-removebg-preview.png",
+      src: "/Images/Screenshot_2026-06-03_214546-removebg-preview.webp",
       alt: "Frappe de fresa en vaso Chaffeine",
       width: 520,
       height: 900,
     },
     {
-      src: "/Images/Image1-removebg-preview.png",
+      src: "/Images/Image1-removebg-preview.webp",
       alt: "Variedad de bebidas frías Chaffeine",
       width: 800,
       height: 600,
       delay: 150,
     },
     {
-      src: "/Images/image-removebg-preview (1).png",
+      src: "/Images/image-removebg-preview (1).webp",
       alt: "Bowl saludable con pollo y vegetales",
       width: 700,
       height: 700,
@@ -49,8 +49,8 @@ export const galleryContent = {
     },
   ],
   quote: {
-    text: "El café es el bálsamo del corazón y del espíritu.",
-    author: "Giuseppe Verdi",
+    text: "¿Ya probaste estas delicias de Chaffeine?",
+
     delay: 450,
   },
 } as const;

@@ -1,23 +1,23 @@
 export const visitUsContent = {
   id: "contact",
-  title: "Visítanos",
-  location: {
-    label: "Ubicación",
-    lines: ["Calle de la Aroma 123,", "Distrito de Diseño, 28001"],
-  },
+  title: "¡Encarga hoy mismo!",
   schedule: {
     label: "Horarios",
-    lines: [
-      "Lunes a Viernes: 08:00 — 20:00",
-      "Sábados y Domingos: 09:00 — 21:00",
-    ],
+    lines: ["Todos los días: 10:00am a 9:00pm"],
+  },
+  service: {
+    label: "Servicio",
+    lines: ["Solo Domicilio"],
   },
   contact: {
     label: "Contacto",
-    lines: ["+34 912 345 678", "hola@chaffeine.com"],
+    lines: ["+53 58182746"],
+    phone: "+5358182746",
   },
-  map: {
-    image: "/Images/Screenshot_2026-06-03_214546-removebg-preview.png",
-    badge: "MADRID, ESPAÑA",
+  logo: {
+    src: "/Images/footer-logo.webp",
+    alt: "Logo Chaffeine Coffee Online",
+    width: 520,
+    height: 200,
   },
 } as const;

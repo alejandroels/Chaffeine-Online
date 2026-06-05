@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Chaffeine | Artisanal Coffee",
   description:
-    "Descubre la perfección en cada gota. Café artesanal con pasión por el tostado y granos seleccionados.",
+    "Smoothie Caribbean + Crumbl Cookie = felicidad asegurada",
 };
 
 export default function RootLayout({

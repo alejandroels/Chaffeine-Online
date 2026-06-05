@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@source "../components/**/*.{js,ts,jsx,tsx}";
+@source "./**/*.{js,ts,jsx,tsx}";
+
 @theme {
   --color-primary: #b194c3;
   --color-on-primary: #2d1b3a;
@@ -157,4 +160,13 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+.mission-image-photo {
+  filter: grayscale(100%) brightness(75%);
+  transition: filter 1.4s ease-out;
+}
+
+.mission-image-photo--color {
+  filter: grayscale(0%) brightness(100%);
 }
