@@ -4,9 +4,6 @@ import Image from "next/image";
 import { useCart } from "@/components/cart/CartProvider";
 import type { Specialty } from "./content";
 
-const PRODUCT_SHADOW =
-  "drop-shadow-[0_16px_36px_rgba(43,27,58,0.28)] drop-shadow-[0_6px_16px_rgba(43,27,58,0.18)]";
-
 type SpecialtyCardProps = {
   item: Specialty;
 };
@@ -32,13 +29,22 @@ export function SpecialtyCard({ item }: SpecialtyCardProps) {
         />
 
         <div className="absolute left-[8%] right-[8%] top-[9%] h-[52%] overflow-visible">
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            sizes="(max-width: 640px) 220px, 240px"
-            className={`translate-y-[5%] object-contain object-bottom ${PRODUCT_SHADOW}`}
-          />
+          <div className="relative h-full w-full">
+            <div
+              className="pointer-events-none absolute bottom-[1%] left-1/2 z-0 w-full -translate-x-1/2"
+              aria-hidden
+            >
+              <div className="mx-auto h-[18px] w-[82%] rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(43,27,58,0.22)_0%,rgba(43,27,58,0.08)_52%,transparent_78%)] blur-[1px] sm:h-[20px]" />
+              <div className="mx-auto -mt-2 h-[7px] w-[48%] rounded-[50%] bg-[rgba(43,27,58,0.38)] blur-[4px] sm:h-[8px]" />
+            </div>
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              sizes="(max-width: 640px) 220px, 240px"
+              className="relative z-10 translate-y-[5%] object-contain object-bottom"
+            />
+          </div>
         </div>
 
         <div className="absolute bottom-[7%] left-[12%] right-[12%] flex flex-col items-center gap-1 text-center">

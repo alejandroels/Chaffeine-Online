@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Chaffeine | Artisanal Coffee",
+  title: "Chaffeine | Online Coffee",
   description:
     "Smoothie Caribbean + Crumbl Cookie = felicidad asegurada",
 };

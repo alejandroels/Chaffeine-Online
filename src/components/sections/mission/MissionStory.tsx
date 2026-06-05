@@ -39,12 +39,12 @@ function TypewriterLines({
   const line2Typing = line2.length > 0 && line2.length < fullLine2.length;
 
   const line1Class = isOverlay
-    ? "font-display-lg text-[1.45rem] leading-[1.2] text-surface sm:text-[1.65rem]"
-    : "font-display-lg text-[2rem] leading-[1.15] sm:text-[2.75rem] lg:text-display-lg";
+    ? "font-display-lg text-[1.35rem] leading-[1.15] text-surface sm:text-[1.85rem]"
+    : "font-display-lg text-[2.15rem] leading-[1.15] sm:text-[2.9rem] lg:text-display-lg";
 
   const line2Class = isOverlay
-    ? "mt-3 max-w-[16rem] font-body-lg text-[0.95rem] leading-relaxed text-surface-container sm:max-w-xs sm:text-base"
-    : "mt-4 font-body-lg text-base leading-relaxed text-surface-container sm:text-body-lg";
+    ? "mt-3 max-w-[94%] font-body-lg text-[0.95rem] leading-snug text-surface-container sm:mt-4 sm:max-w-sm sm:text-[1.05rem]"
+    : "mt-4 max-w-xl font-body-lg text-[1.05rem] leading-relaxed text-surface-container sm:text-[1.125rem] lg:max-w-2xl";
 
   return (
     <>
@@ -76,6 +76,7 @@ export function MissionStory({
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const [fullLine1, fullLine2] = titleLines;
+  const hasMobileAsideContent = Boolean(eyebrow || stats?.length);
 
   useEffect(() => {
     const element = sectionRef.current;
@@ -148,10 +149,12 @@ export function MissionStory({
       id={id}
       ref={sectionRef}
       aria-label={`${fullLine1} ${fullLine2}`}
-      className="overflow-hidden bg-on-surface py-12 text-surface sm:py-16 md:py-stack-lg"
+      className="flex min-h-[100dvh] flex-col overflow-x-clip overflow-hidden bg-on-surface py-4 text-surface sm:py-8 md:min-h-0 md:py-stack-lg"
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-4 sm:gap-10 sm:px-gutter-lg lg:grid-cols-2 lg:gap-gutter-lg">
-        <Reveal className="order-2 md:order-1">
+      <div className="mx-auto flex h-full min-h-0 w-full max-w-7xl flex-1 flex-col items-center justify-center px-gutter-sm sm:px-gutter-md md:grid md:grid-cols-1 md:items-center md:justify-normal md:gap-10 lg:grid-cols-2 lg:gap-gutter-lg lg:px-gutter-lg">
+        <Reveal
+          className={`order-2 md:order-1 ${hasMobileAsideContent ? "" : "hidden md:block"}`}
+        >
           {eyebrow ? (
             <span className="mb-4 block font-label-md text-label-md uppercase tracking-widest text-primary-container sm:mb-6">
               {eyebrow}
@@ -184,28 +187,32 @@ export function MissionStory({
           ) : null}
         </Reveal>
 
-        <Reveal className="relative order-1 w-full md:order-2" delay={200}>
-          <div className="mission-image-wrap mx-auto w-full max-w-md border border-white/10 bg-white/5 p-3 backdrop-blur-sm sm:max-w-lg sm:p-4 lg:mx-0 lg:max-w-none">
+        <Reveal
+          className="relative order-1 flex w-full flex-none flex-col items-center justify-center md:order-2 md:items-stretch"
+          delay={200}
+        >
+          <div className="mission-image-wrap mx-auto w-full max-w-[min(94vw,26rem)] border border-white/10 bg-white/5 p-3 backdrop-blur-sm sm:max-w-lg sm:p-4 md:max-w-xl lg:mx-0 lg:max-w-none">
             <div className="relative aspect-[3/4] w-full overflow-hidden">
               <Image
                 src={image.src}
                 alt={image.alt}
-                width={600}
-                height={800}
-                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 600px"
-                className={`mission-image-photo h-full w-full object-cover object-center ${
+                fill
+                sizes="(max-width: 768px) 94vw, (max-width: 1024px) 50vw, 640px"
+                className={`mission-image-photo object-cover object-center ${
                   isColor ? "mission-image-photo--color" : ""
                 }`}
               />
 
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-on-surface/50 px-6 text-center md:hidden">
-                <TypewriterLines
-                  line1={line1}
-                  line2={line2}
-                  fullLine1={fullLine1}
-                  fullLine2={fullLine2}
-                  variant="overlay"
-                />
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-on-surface/50 px-3 text-center sm:px-6 md:hidden">
+                <div className="translate-y-[10%] sm:translate-y-[8%]">
+                  <TypewriterLines
+                    line1={line1}
+                    line2={line2}
+                    fullLine1={fullLine1}
+                    fullLine2={fullLine2}
+                    variant="overlay"
+                  />
+                </div>
               </div>
             </div>
           </div>

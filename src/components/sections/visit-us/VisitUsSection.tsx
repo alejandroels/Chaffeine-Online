@@ -41,10 +41,7 @@ export function VisitUsSection() {
             </div>
 
             <div className="mt-10">
-              <h4 className="mb-4 font-label-md text-label-md uppercase tracking-widest text-primary">
-                Redes Sociales
-              </h4>
-              <SocialLinks />
+              <SocialLinks showHeading headingClassName="mb-1" />
             </div>
           </Reveal>
 
