@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCart } from "@/components/cart/CartProvider";
+import { PrimaryActionButton } from "@/components/ui/PrimaryActionButton";
 import type { Specialty } from "./content";
 
 type SpecialtyCardProps = {
@@ -60,13 +61,12 @@ export function SpecialtyCard({ item }: SpecialtyCardProps) {
         </div>
       </div>
 
-      <button
-        type="button"
+      <PrimaryActionButton
         onClick={handleRequest}
-        className="w-full max-w-[220px] bg-primary px-6 py-2.5 font-label-md text-label-md uppercase tracking-widest text-on-primary transition-opacity duration-300 hover:opacity-85"
+        className="w-full max-w-[220px]"
       >
         Solicitar
-      </button>
+      </PrimaryActionButton>
     </article>
   );
 }

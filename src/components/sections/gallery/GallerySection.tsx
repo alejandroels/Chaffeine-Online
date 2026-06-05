@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
+import { PrimaryActionLink } from "@/components/ui/PrimaryActionButton";
 import { Reveal } from "@/components/ui/Reveal";
 import { LOGO_PURPLE } from "@/components/sections/hero/constants";
 import { GALLERY_BG, GALLERY_CIRCLE_THEMES, type GalleryCircleTheme } from "./constants";
@@ -66,12 +67,9 @@ function GalleryViewButton({
   className?: string;
 }) {
   return (
-    <a
-      href={href}
-      className={`inline-flex bg-primary px-8 py-2.5 font-label-md text-label-md uppercase tracking-widest text-on-primary transition-opacity duration-300 hover:opacity-85 ${className}`.trim()}
-    >
+    <PrimaryActionLink href={href} className={className}>
       Ver
-    </a>
+    </PrimaryActionLink>
   );
 }
 

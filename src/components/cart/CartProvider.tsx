@@ -4,7 +4,9 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from "react";
@@ -28,30 +30,69 @@ const CartContext = createContext<CartContextValue | null>(null);
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+  const historyPushedRef = useRef(false);
 
-  const addItem = useCallback((product: CartProduct) => {
-    setItems((current) => {
-      const existing = current.find((item) => item.id === product.id);
+  const pushCartHistory = useCallback(() => {
+    if (typeof window === "undefined" || historyPushedRef.current) {
+      return;
+    }
 
-      if (existing) {
-        return current.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item,
-        );
-      }
-
-      return [
-        ...current,
-        {
-          ...product,
-          priceValue: parsePrice(product.price),
-          quantity: 1,
-        },
-      ];
-    });
-    setIsOpen(true);
+    window.history.pushState({ cartOpen: true }, "");
+    historyPushedRef.current = true;
   }, []);
+
+  const openCart = useCallback(() => {
+    setIsOpen(true);
+    pushCartHistory();
+  }, [pushCartHistory]);
+
+  const closeCart = useCallback(() => {
+    if (historyPushedRef.current) {
+      historyPushedRef.current = false;
+      window.history.back();
+      return;
+    }
+
+    setIsOpen(false);
+  }, []);
+
+  useEffect(() => {
+    const onPopState = () => {
+      historyPushedRef.current = false;
+      setIsOpen(false);
+    };
+
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
+
+  const addItem = useCallback(
+    (product: CartProduct) => {
+      setItems((current) => {
+        const existing = current.find((item) => item.id === product.id);
+
+        if (existing) {
+          return current.map((item) =>
+            item.id === product.id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item,
+          );
+        }
+
+        return [
+          ...current,
+          {
+            ...product,
+            priceValue: parsePrice(product.price),
+            quantity: 1,
+          },
+        ];
+      });
+      setIsOpen(true);
+      pushCartHistory();
+    },
+    [pushCartHistory],
+  );
 
   const removeItem = useCallback((id: string) => {
     setItems((current) => current.filter((item) => item.id !== id));
@@ -69,9 +110,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
       ),
     );
   }, []);
-
-  const openCart = useCallback(() => setIsOpen(true), []);
-  const closeCart = useCallback(() => setIsOpen(false), []);
 
   const totalItems = useMemo(
     () => items.reduce((sum, item) => sum + item.quantity, 0),

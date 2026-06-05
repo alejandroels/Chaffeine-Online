@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
+import { buildWhatsAppOrderUrl } from "./buildWhatsAppOrderUrl";
 import { useCart } from "./CartProvider";
 
 function formatPrice(value: number) {
@@ -18,6 +19,14 @@ export function CartSidebar() {
     removeItem,
     updateQuantity,
   } = useCart();
+
+  const handleWhatsAppOrder = () => {
+    if (items.length === 0) {
+      return;
+    }
+
+    window.open(buildWhatsAppOrderUrl(items, totalPrice), "_blank", "noopener,noreferrer");
+  };
 
   return (
     <>
@@ -143,9 +152,10 @@ export function CartSidebar() {
           <button
             type="button"
             disabled={items.length === 0}
+            onClick={handleWhatsAppOrder}
             className="w-full bg-primary px-6 py-3 font-label-md text-label-md uppercase tracking-widest text-on-primary transition-opacity duration-300 hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-40"
           >
-            Confirmar solicitud
+            Solicitar por WhatsApp
           </button>
         </div>
       </aside>
