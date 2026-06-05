@@ -12,7 +12,11 @@ export function MaterialIcon({
   return (
     <span
       className={`material-symbols-outlined ${className}`.trim()}
-      style={{ fontSize: size }}
+      style={{
+        fontSize: size,
+        fontFamily: '"Material Symbols Outlined"',
+      }}
+      aria-hidden
     >
       {name}
     </span>
