@@ -126,12 +126,35 @@
 
   .reveal {
     opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s ease-out;
+    transition:
+      opacity 0.8s ease-out,
+      transform 0.8s ease-out;
   }
 
-  .reveal.active {
+  .reveal-from-up {
+    transform: translateY(20px);
+  }
+
+  .reveal-from-up.active {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  .reveal-from-left {
+    transform: translateX(-56px);
+  }
+
+  .reveal-from-left.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-from-right {
+    transform: translateX(56px);
+  }
+
+  .reveal-from-right.active {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

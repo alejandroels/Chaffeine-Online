@@ -3,6 +3,29 @@ export const galleryContent = {
   title: "Nuestras Especialidades",
   description:
     "Selección curada por nuestros baristas para los paladares más exigentes.",
+  posters: {
+    smoothies: {
+      src: "/Images/Posters/Smoothies.png",
+      alt: "Smoothies",
+      width: 900,
+      height: 280,
+      viewHref: "#menu",
+    },
+    detox: {
+      src: "/Images/Posters/DETOX.png",
+      alt: "Detox",
+      width: 900,
+      height: 280,
+      viewHref: "#menu",
+    },
+    ensaladas: {
+      src: "/Images/Posters/Ensaldas.png",
+      alt: "Ensaladas",
+      width: 900,
+      height: 280,
+      viewHref: "#menu",
+    },
+  },
   images: [
     {
       src: "/Images/Screenshot_2026-06-03_214546-removebg-preview.png",

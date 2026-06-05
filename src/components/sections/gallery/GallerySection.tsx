@@ -3,48 +3,89 @@ import { Reveal } from "@/components/ui/Reveal";
 import { GALLERY_BG } from "./constants";
 import { galleryContent } from "./content";
 
-function GalleryImage({
-  src,
-  alt,
-  width,
-  height,
-  contain,
-}: {
+type Align = "left" | "center" | "right";
+
+function alignClass(align: Align) {
+  return align === "left"
+    ? "justify-start"
+    : align === "right"
+      ? "justify-end"
+      : "justify-center";
+}
+
+type ProductImageProps = {
   src: string;
   alt: string;
   width: number;
   height: number;
-  contain?: boolean;
-}) {
-  if (contain) {
-    return (
-      <div className="flex w-full min-h-[240px] items-center justify-center p-4 sm:min-h-[300px] sm:p-6 lg:min-h-[360px]">
-        <Image
-          src={src}
-          alt={alt}
-          width={width}
-          height={height}
-          className="h-auto max-h-[min(360px,50vh)] w-full object-contain transition-transform duration-700 hover:scale-[1.02]"
-        />
-      </div>
-    );
-  }
+  align?: Align;
+};
 
+const IMAGE_SHADOW =
+  "drop-shadow-[0_20px_48px_rgba(43,27,58,0.32)] drop-shadow-[0_8px_22px_rgba(43,27,58,0.2)] drop-shadow-[0_2px_10px_rgba(43,27,58,0.14)]";
+
+function GalleryProductImage({
+  src,
+  alt,
+  width,
+  height,
+  align = "center",
+}: ProductImageProps) {
   return (
-    <div className="relative aspect-[5/6] w-full overflow-hidden bg-surface-container sm:aspect-[4/5]">
+    <div
+      className={`flex w-full min-h-[220px] items-center p-4 sm:min-h-[280px] sm:p-6 lg:min-h-[320px] ${alignClass(align)}`}
+    >
       <Image
         src={src}
         alt={alt}
-        fill
-        sizes="(max-width: 1024px) 100vw, 42vw"
-        className="object-cover transition-transform duration-700 hover:scale-105"
+        width={width}
+        height={height}
+        className={`h-auto max-h-[min(380px,55vh)] w-full max-w-2xl object-contain transition-transform duration-700 hover:scale-[1.02] ${IMAGE_SHADOW}`}
       />
     </div>
   );
 }
 
+type PosterProps = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  viewHref: string;
+  align?: Align;
+};
+
+function GalleryPoster({
+  src,
+  alt,
+  width,
+  height,
+  viewHref,
+  align = "left",
+}: PosterProps) {
+  const itemsClass = align === "right" ? "items-end" : "items-start";
+
+  return (
+    <div className={`flex w-full flex-col gap-5 p-4 sm:p-6 ${itemsClass}`}>
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        className={`h-auto w-full max-w-xl object-contain object-center ${IMAGE_SHADOW}`}
+      />
+      <a
+        href={viewHref}
+        className="inline-flex bg-primary px-8 py-2.5 font-label-md text-label-md uppercase tracking-widest text-on-primary transition-opacity duration-300 hover:opacity-85"
+      >
+        Ver
+      </a>
+    </div>
+  );
+}
+
 export function GallerySection() {
-  const { id, title, description, images, quote } = galleryContent;
+  const { id, title, description, posters, images, quote } = galleryContent;
   const [firstImage, secondImage, thirdImage] = images;
 
   return (
@@ -67,45 +108,79 @@ export function GallerySection() {
           <div className="mx-8 mb-4 hidden h-px flex-grow bg-outline-variant/40 md:block" />
         </Reveal>
 
-        <div className="grid grid-cols-12 items-start gap-10 lg:gap-14 xl:gap-16">
-          <div className="col-span-12 flex flex-col gap-10 sm:gap-12 lg:col-span-6 xl:col-span-5">
-            <Reveal>
-              <GalleryImage
+        <div className="flex flex-col gap-12 sm:gap-14 lg:gap-20">
+          <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-2 md:gap-8 lg:gap-10">
+            <Reveal from="right">
+              <GalleryPoster
+                src={posters.smoothies.src}
+                alt={posters.smoothies.alt}
+                width={posters.smoothies.width}
+                height={posters.smoothies.height}
+                viewHref={posters.smoothies.viewHref}
+                align="left"
+              />
+            </Reveal>
+            <Reveal from="right" delay={80}>
+              <GalleryProductImage
                 src={firstImage.src}
                 alt={firstImage.alt}
                 width={firstImage.width}
                 height={firstImage.height}
-                contain
+                align="right"
               />
             </Reveal>
+          </div>
 
-            <Reveal delay={secondImage.delay}>
-              <GalleryImage
+          <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-2 md:gap-8 lg:gap-10">
+            <Reveal from="left" delay={secondImage.delay}>
+              <GalleryProductImage
                 src={secondImage.src}
                 alt={secondImage.alt}
                 width={secondImage.width}
                 height={secondImage.height}
-                contain
+                align="left"
               />
             </Reveal>
+            <Reveal from="right" delay={(secondImage.delay ?? 0) + 80}>
+              <GalleryPoster
+                src={posters.detox.src}
+                alt={posters.detox.alt}
+                width={posters.detox.width}
+                height={posters.detox.height}
+                viewHref={posters.detox.viewHref}
+                align="right"
+              />
+            </Reveal>
+          </div>
 
-            <Reveal delay={thirdImage.delay}>
-              <GalleryImage
+          <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-2 md:gap-8 lg:gap-10">
+            <Reveal from="left" delay={thirdImage.delay}>
+              <GalleryPoster
+                src={posters.ensaladas.src}
+                alt={posters.ensaladas.alt}
+                width={posters.ensaladas.width}
+                height={posters.ensaladas.height}
+                viewHref={posters.ensaladas.viewHref}
+                align="left"
+              />
+            </Reveal>
+            <Reveal from="right" delay={(thirdImage.delay ?? 0) + 80}>
+              <GalleryProductImage
                 src={thirdImage.src}
                 alt={thirdImage.alt}
                 width={thirdImage.width}
                 height={thirdImage.height}
-                contain
+                align="right"
               />
             </Reveal>
-
           </div>
 
           <Reveal
-            className="col-span-12 flex items-center justify-center py-8 lg:col-span-6 lg:col-start-8 lg:py-16 xl:col-span-7 xl:col-start-6"
+            className="flex items-center justify-center py-4 lg:py-8"
             delay={quote.delay}
+            from="right"
           >
-            <div className="max-w-xl text-center lg:text-left">
+            <div className="max-w-2xl text-center">
               <p className="mb-6 font-display-lg text-[2rem] leading-tight italic sm:text-[2.5rem] lg:text-[3rem]">
                 &ldquo;{quote.text}&rdquo;
               </p>

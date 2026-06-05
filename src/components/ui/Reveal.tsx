@@ -7,6 +7,7 @@ type RevealProps = {
   className?: string;
   delay?: number;
   activeOnMount?: boolean;
+  from?: "up" | "left" | "right";
 };
 
 export function Reveal({
@@ -14,6 +15,7 @@ export function Reveal({
   className = "",
   delay,
   activeOnMount = false,
+  from = "up",
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -44,7 +46,7 @@ export function Reveal({
   return (
     <div
       ref={ref}
-      className={`reveal ${activeOnMount ? "active" : ""} ${className}`.trim()}
+      className={`reveal reveal-from-${from} ${activeOnMount ? "active" : ""} ${className}`.trim()}
       style={delay !== undefined ? { transitionDelay: `${delay}ms` } : undefined}
     >
       {children}

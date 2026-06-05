@@ -1,1 +1,1 @@
-export const GALLERY_BG = "#F7D5D5";
+export const GALLERY_BG = "#f2effa";
