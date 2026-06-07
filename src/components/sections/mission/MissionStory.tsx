@@ -203,8 +203,8 @@ export function MissionStory({
                 }`}
               />
 
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-on-surface/50 px-3 text-center sm:px-6 md:hidden">
-                <div className="translate-y-[10%] sm:translate-y-[8%]">
+              <div className="absolute inset-0 flex flex-col items-start justify-start bg-on-surface/50 pt-28 text-left md:hidden">
+                <div className="ml-[50%] w-auto pr-4">
                   <TypewriterLines
                     line1={line1}
                     line2={line2}
